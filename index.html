@@ -38,6 +38,29 @@
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script> -->
 
+  <script>
+    
+    if (navigator.serviceWorker) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('sw.js')
+          .then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+    }
+
+  //   // self.addEventListener('activate', function(event) {
+  //   // // `claim()` sets this worker as the active worker for all clients that
+  //   // // match the workers scope and triggers an `oncontrollerchange` event for
+  //   // // the clients.
+  //   // return self.clients.claim();
+  // });
+  </script>
 
   <footer id="footer">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
